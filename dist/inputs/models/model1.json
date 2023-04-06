@@ -1,0 +1,36 @@
+{
+    "name": "User",
+    "title": "USER",
+    "schema": {
+        "firstname": {
+            "type": "String",
+            "min": 5,
+            "max": 25,
+            "uniq": true
+        },
+        "lastname": {
+            "type": "String",
+            "min": 5,
+            "max": 25,
+            "uniq": true
+        },
+        "dateOfBirth": {
+            "type": "Date",
+            "min": "x",
+            "max": "y"
+        },
+        "salary": {
+            "type": "Number",
+            "min": 7000,
+            "max": 150000,
+            "default": 0
+        },
+        "isActive": {
+            "type": "Boolean",
+            "default": false
+        },
+        "projects": {
+            "type": "Project"
+        }
+    }
+}

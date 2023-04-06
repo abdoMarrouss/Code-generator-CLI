@@ -1,0 +1,5 @@
+interface {{name}} {
+    {{#each schema}}
+    {{@key}}: {{#if isArray}}Array<{{type}}>{{else}}{{type}}{{/if}};
+    {{/each}}
+}
