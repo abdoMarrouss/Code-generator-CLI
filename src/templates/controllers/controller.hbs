@@ -1,0 +1,54 @@
+import { Controller, Get, Post, Body, Param, Delete, Put, Query, Req } from "@nestjs/common";
+import { {{name}}Service } from "../service/user.service";
+import { Create{{name}}Dto } from "../dto/create-{{name}}.dto";
+import { Update{{name}}Dto } from "../dto/update-{{name}}.dto";
+import { {{name}} } from "../schema/{{name}}.schema";
+import { Request } from "express";
+
+
+@Controller("{{name}}")
+export class {{name}}Controller {
+  constructor(private readonly {{name}}Service: {{name}}Service) {
+  }
+
+  @Post()
+  create(@Body() create{{name}}Dto: Create{{name}}Dto) {
+    return this.{{name}}Service.create(create{{name}}Dto);
+  }
+
+ @Get()
+  findAll() {
+    return this.{{name}}Service.findAll();
+  }
+
+
+
+  @Get(":id")
+  findOne(@Param("id") id: string) {
+    return this.{{name}}Service.findOne(id);
+  }
+
+  @Put(":id")
+  update(@Param("id") id: string, @Body() update{{name}}Dto: Update{{name}}Dto) {
+    return this.{{name}}Service.update(id, update{{name}}Dto);
+  }
+
+  @Delete(":id")
+  remove(@Param("id") id: string) {
+    return this.{{name}}Service.remove(id);
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/model1.js"
+    "start": "node dist/src/icode/generator.js"
   },
-  "keywords": [],
+  "keywords": ["cli"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -16,9 +16,24 @@
     "handlebars-template-loader": "^1.0.0",
     "typescript": "^5.0.3"
   },
+  
+  "bin": {
+    "icode": "./bin/generate.js"
+  },
   "dependencies": {
+    "@nestjs/cli": "^9.3.0",
     "ajv": "^8.12.0",
     "fs-extra": "^11.1.1",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7", 
+    "@vitalets/google-translate-api": "^7.0.0",
+    "boxen": "^4.2.0",
+    "chalk": "^4.1.1",
+    "commander": "^10.0.0",
+    "figlet": "^1.5.2",
+    "yargs": "^16.1.1", 
+    "@nestjs/common": "^9.4.0",
+    "@nestjs/core": "^9.4.0",
+    "@nestjs/platform-express": "^9.4.0",
+    "child_process": "^1.0.2"
   }
 }

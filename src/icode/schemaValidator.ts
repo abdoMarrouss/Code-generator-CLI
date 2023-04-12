@@ -1,5 +1,5 @@
 import Ajv, {JSONSchemaType} from "ajv"
-import jsonData from './inputs/models/model2.json';
+import jsonData from '../inputs/models/model2.json';
 
 
 

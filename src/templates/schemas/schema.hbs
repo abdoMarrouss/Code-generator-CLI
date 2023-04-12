@@ -1,0 +1,16 @@
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
+
+export type {{name}}Document = {{name}} & Document;
+
+@Schema()
+export class {{name}} {
+  {{#each schema}}
+
+  @Prop()
+  {{@key}}: {{type}};
+
+  {{/each}}
+}
+
+export const {{name}}Schema = SchemaFactory.createForClass({{name}});

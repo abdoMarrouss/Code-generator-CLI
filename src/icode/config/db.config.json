@@ -1,0 +1,7 @@
+{
+    "MONGO_DB": {
+      "type": "mongodb",
+      "connection": "mongodb://localhost/nestjs"
+    }
+  }
+  

@@ -1,6 +1,11 @@
 {
     "name": "User",
-    "title": "USER",
+    "labels": {
+        "title": "USER",
+        "code" : "user", 
+        "plural" : "users"
+
+    },
     "schema": {
         "firstname": {
             "type": "String",
