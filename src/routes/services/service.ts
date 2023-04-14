@@ -17,7 +17,7 @@ export class ServiceTemplate {
         const compiledTemplate = Handlebars.compile(serviceTemplate);
         const generatedCode = compiledTemplate(schema);
 
-        fs.outputFileSync(`targetApp/static-app/src/${schema.name}/services/${schema.name}.service.ts`, generatedCode);
+        fs.outputFileSync(`targetApp/static-app/src/${schema.labels.code}/services/${schema.labels.code}.service.ts`, generatedCode);
 
 
     }

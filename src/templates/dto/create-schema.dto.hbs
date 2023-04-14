@@ -1,5 +1,108 @@
-import  { {{name}} } from "../entities/{{name}}.entity";
+import { IsString, IsDate, IsNumber, IsBoolean, IsArray, ArrayUnique, Min, Max, MaxDate, MinDate, IsOptional } from 'class-validator';
+{{#each schema}}
+{{#unless (isPrimitiveType type)}}
+import { {{type}} } from './.';
+{{/unless}}
+{{/each}}
 
-export class Create{{name}}Dto extends {{name}} {
 
+export class CreateUserDto {
+{{#each schema}}
+
+{{#isString type}}
+@IsString()
+{{/isString}}
+{{#isNumber type}}
+@IsNumber()
+{{/isNumber}}
+{{#isBoolean type}}
+@IsBoolean()
+{{/isBoolean}}
+{{#isDate type}}
+@IsDate()
+{{/isDate}}
+{{#unless (isPrimitiveType type)}}
+{{/unless}}
+{{#if min}}
+@Min({{min}})
+{{/if}}
+{{#if max}}
+@Max({{max}})
+{{/if}}
+{{#if uniq}}
+@ArrayUnique()
+{{/if}}
+{{#if default}}
+@IsOptional()
+{{/if}}
+{{#if maxDate}}
+@MaxDate(new Date('{{maxDate}}'))
+{{/if}}
+{{#if minDate}}
+@MinDate(new Date('{{minDate}}'))
+{{/if}}
+{{#if (isPrimitiveType type)}} 
+{{@key}}: {{type}}; {{else}} {{@key}}: {{type}}[];
+{{/if}}
+
+
+{{/each}}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- import { IsString, IsDate, IsNumber, IsBoolean, IsArray, ArrayUnique, Min, Max,maxDate, minDate IsOptional } from
+'class-validator';
+
+export class CreateUserDto {
+{{#each schema}}
+{{#if (eq type "string")}}
+@Is{{type}}()
+{{/if}}
+{{#if min}}
+@Min({{min}})
+{{/if}}
+{{#if max}}
+@Max({{max}})
+{{/if}}
+{{#if uniq}}
+@ArrayUnique()
+{{/if}}
+{{#if default}}
+@IsOptional()
+{{/if}}
+{{#if maxDate}}
+@maxDate({{maxDate}})
+{{/if}}
+{{#if minDate}}
+@minDate({{minDate}})
+{{/if}}
+{{#unlessInArray value}}
+nodataType
+{{/unlessInArray}}
+{{@key}}: {{#if type}}{{type}}{{else}}any{{/if}}{{#unless default}}{{/unless}};
+
+{{/each}}
+} --}}

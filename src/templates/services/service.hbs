@@ -1,39 +1,39 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model, Types } from "mongoose";
-import { Create{{name}}Dto } from "../dto/create-{{name}}.dto";
-import { Update{{name}}Dto } from "../dto/update-{{name}}.dto";
-import { {{name}}, {{name}}Document } from "../schema/{{name}}.schema";
+import { Create{{name}}Dto } from "../dto/create-{{labels.code}}.dto";
+import { Update{{name}}Dto } from "../dto/update-{{labels.code}}.dto";
+import { {{name}}, {{name}}Document } from "../schemas/{{labels.code}}.schema";
 
 @Injectable()
 export class {{name}}Service {
 
-  constructor(@InjectModel({{name}}.name) private readonly {{toLowerCase name}}Model: Model< {{name}}Document>) {
+  constructor(@InjectModel({{name}}.name) private readonly {{labels.code}}Model: Model< {{name}}Document>) {
   }
 
   async create(create{{name}}Dto: Create{{name}}Dto): Promise<{{name}}Document> {
-    const {{toLowerCase name}} = new this.{{toLowerCase name}}Model(create{{name}}Dto);
-    return {{toLowerCase name}}.save();
+    const {{labels.code}} = new this.{{labels.code}}Model(create{{name}}Dto);
+    return {{labels.code}}.save();
   }
 
     
 
   async findOne(id: string) {
-    return this.{{toLowerCase name}}Model.findById(id);
+    return this.{{labels.code}}Model.findById(id);
   }
 
   async update(id: string, update{{name}}Dto: Update{{name}}Dto): Promise< {{name}}Document> {
-    return this.{{toLowerCase name}}Model.findByIdAndUpdate(id, update{{name}}Dto);
+    return this.{{labels.code}}Model.findByIdAndUpdate(id, update{{name}}Dto);
   }
 
   async remove(id: string) {
-    return this.{{toLowerCase name}}Model.findByIdAndRemove(id);
+    return this.{{labels.code}}Model.findByIdAndRemove(id);
   }
 
 
 
    async findAll(): Promise<{{name}}Document[]> {
-     return this.{{toLowerCase name}}Model.find()
+     return this.{{labels.code}}Model.find()
        .exec();
    }
 

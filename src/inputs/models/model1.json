@@ -8,30 +8,30 @@
     },
     "schema": {
         "firstname": {
-            "type": "String",
+            "type": "string",
             "min": 5,
             "max": 25,
             "uniq": true
         },
         "lastname": {
-            "type": "String",
+            "type": "string",
             "min": 5,
             "max": 25,
             "uniq": true
         },
         "dateOfBirth": {
             "type": "Date",
-            "min": "x",
-            "max": "y"
+            "minDate": "200-04-14",
+            "maxDate": "2023-04-14"
         },
         "salary": {
-            "type": "Number",
+            "type": "number",
             "min": 7000,
             "max": 150000,
             "default": 0
         },
         "isActive": {
-            "type": "Boolean",
+            "type": "boolean",
             "default": false
         },
         "projects": 

@@ -12,7 +12,7 @@ export class UpdateSchemaeDto {
     const compiledTemplate = Handlebars.compile(updateSchemaDtoTemplate);
     const generatedCode = compiledTemplate(schema);
     //
-    fs.outputFileSync(`targetApp/static-app/src/${schema.name}/dto/update-${schema.name}.dto.ts`, generatedCode);
+    fs.outputFileSync(`targetApp/static-app/src/${schema.labels.code}/dto/update-${schema.labels.code}.dto.ts`, generatedCode);
 
     }
     

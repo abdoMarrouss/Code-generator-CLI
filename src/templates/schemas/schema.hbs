@@ -5,12 +5,24 @@ export type {{name}}Document = {{name}} & Document;
 
 @Schema()
 export class {{name}} {
-  {{#each schema}}
+{{#each schema}}
 
-  @Prop()
-  {{@key}}: {{type}};
+@Prop({
+{{#if min}}
+@Min( {{min}} )
+{{/if}}
+{{#if max}}
+@Max( {{max}} )
+{{/if}}
+{{#if max}}
+@Max( {{max}} )
+{{/if}}
 
-  {{/each}}
+})
+
+{{@key}}: {{type}};
+
+{{/each}}
 }
 
 export const {{name}}Schema = SchemaFactory.createForClass({{name}});

@@ -13,12 +13,11 @@ export class Model {
     const compiledTemplate = Handlebars.compile(interfaceTemplate);
     const generatedCode = compiledTemplate(schema);
     //
-    fs.outputFileSync(`targetApp/static-app/src/${schema.name}/entities/${schema.name}.ts`, generatedCode);
+    fs.outputFileSync(`targetApp/static-app/src/${schema.labels.code}/entities/${schema.labels.code}.entity.ts`, generatedCode);
     //fs.ensureDirSync('src/person/dto');
     console.log(appName);
 
     }
-    
     
     
 }

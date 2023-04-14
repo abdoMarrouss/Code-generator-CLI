@@ -12,7 +12,7 @@ export class SchemaModule {
     const compiledTemplate = Handlebars.compile(schemaModuleTemplate);
     const generatedCode = compiledTemplate(schema);
     //
-    fs.outputFileSync(`targetApp/static-app/src/${schema.name}/${schema.name}.module.ts`, generatedCode);
+    fs.outputFileSync(`targetApp/static-app/src/${schema.labels.code}/${schema.labels.code}.module.ts`, generatedCode);
     //fs.ensureDirSync('src/person/dto');
     
 

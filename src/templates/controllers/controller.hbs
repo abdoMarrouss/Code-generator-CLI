@@ -1,41 +1,41 @@
 import { Controller, Get, Post, Body, Param, Delete, Put, Query, Req } from "@nestjs/common";
-import { {{name}}Service } from "../service/user.service";
-import { Create{{name}}Dto } from "../dto/create-{{name}}.dto";
-import { Update{{name}}Dto } from "../dto/update-{{name}}.dto";
-import { {{name}} } from "../schema/{{name}}.schema";
+import { {{name}}Service } from "../services/{{labels.code}}.service";
+import { Create{{name}}Dto } from "../dto/create-{{labels.code}}.dto";
+import { Update{{name}}Dto } from "../dto/update-{{labels.code}}.dto";
+import { {{name}} } from "../schemas/{{labels.code}}.schema";
 import { Request } from "express";
 
 
-@Controller("{{name}}")
+@Controller("{{plural}}")
 export class {{name}}Controller {
-  constructor(private readonly {{name}}Service: {{name}}Service) {
+  constructor(private readonly {{labels.code}}Service: {{name}}Service) {
   }
 
   @Post()
   create(@Body() create{{name}}Dto: Create{{name}}Dto) {
-    return this.{{name}}Service.create(create{{name}}Dto);
+    return this.{{labels.code}}Service.create(create{{name}}Dto);
   }
 
  @Get()
   findAll() {
-    return this.{{name}}Service.findAll();
+    return this.{{labels.code}}Service.findAll();
   }
 
 
 
   @Get(":id")
   findOne(@Param("id") id: string) {
-    return this.{{name}}Service.findOne(id);
+    return this.{{labels.code}}Service.findOne(id);
   }
 
   @Put(":id")
   update(@Param("id") id: string, @Body() update{{name}}Dto: Update{{name}}Dto) {
-    return this.{{name}}Service.update(id, update{{name}}Dto);
+    return this.{{labels.code}}Service.update(id, update{{name}}Dto);
   }
 
   @Delete(":id")
   remove(@Param("id") id: string) {
-    return this.{{name}}Service.remove(id);
+    return this.{{labels.code}}Service.remove(id);
   }
 
 

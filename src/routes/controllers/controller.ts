@@ -17,7 +17,7 @@ export class ControllerTemplate {
         const compiledTemplate = Handlebars.compile(controllerTemplate);
         const generatedCode = compiledTemplate(schema);
 
-        fs.outputFileSync(`targetApp/static-app/src/${schema.name}/controllers/${schema.name}.controller.ts`, generatedCode);
+        fs.outputFileSync(`targetApp/static-app/src/${schema.labels.code}/controllers/${schema.labels.code}.controller.ts`, generatedCode);
 
 
     }

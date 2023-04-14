@@ -12,7 +12,7 @@ export class SchemaCode {
     const compiledTemplate = Handlebars.compile(shcemaTemplate);
     const generatedCode = compiledTemplate(schema);
     //
-    fs.outputFileSync(`targetApp/static-app/src/${schema.name}/schema/${schema.name}.schema.ts`, generatedCode);
+    fs.outputFileSync(`targetApp/static-app/src/${schema.labels.code}/schemas/${schema.labels.code}.schema.ts`, generatedCode);
     //fs.ensureDirSync('src/person/dto');
 
     }
