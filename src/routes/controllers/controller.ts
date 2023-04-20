@@ -9,7 +9,7 @@ const controllerTemplate = fs.readFileSync('src/templates/controllers/controller
 export class ControllerTemplate {
 
 
-    generateController() {
+    generateController(schema:any) {
         Handlebars.registerHelper('toLowerCase', function(str) {
             return str.toLowerCase();
           });

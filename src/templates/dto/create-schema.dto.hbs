@@ -1,12 +1,15 @@
-import { IsString, IsDate, IsNumber, IsBoolean, IsArray, ArrayUnique, Min, Max, MaxDate, MinDate, IsOptional } from 'class-validator';
-{{#each schema}}
+import { IsString, IsDate, IsNumber, IsBoolean, IsArray, ArrayUnique, Min, Max, MaxDate, MinDate, IsOptional } from
+'class-validator';
+{{!-- {{#each schema}}
 {{#unless (isPrimitiveType type)}}
-import { {{type}} } from './.';
+{{#if (isArrayType type)}} {{else}}
+import { {{type}} } from "../entities/{{type}}.entity";
+{{/if}}
 {{/unless}}
-{{/each}}
+{{/each}} --}}
 
 
-export class CreateUserDto {
+export class Create{{name}}Dto {
 {{#each schema}}
 
 {{#isString type}}
@@ -41,10 +44,13 @@ export class CreateUserDto {
 {{#if minDate}}
 @MinDate(new Date('{{minDate}}'))
 {{/if}}
-{{#if (isPrimitiveType type)}} 
-{{@key}}: {{type}}; {{else}} {{@key}}: {{type}}[];
+{{#if (isPrimitiveType type)}}
+{{@key}}: {{type}}; {{else}}
+{{#if (isArrayType type)}}
+{{@key}}: {{of}}[];
+{{else}} {{@key}}: {{type}};
 {{/if}}
-
+{{/if}}
 
 {{/each}}
 }

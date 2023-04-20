@@ -8,7 +8,7 @@ const appModuleTemplate = fs.readFileSync('src/templates/modules/app.module.hbs'
 export class AppModule {
 
 
-    generateAppModule() {
+    generateAppModule(schema:any) {
     
     const compiledTemplate = Handlebars.compile(appModuleTemplate);
     const generatedCode = compiledTemplate(schema);

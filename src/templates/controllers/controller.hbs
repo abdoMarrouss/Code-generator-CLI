@@ -6,7 +6,7 @@ import { {{name}} } from "../schemas/{{labels.code}}.schema";
 import { Request } from "express";
 
 
-@Controller("{{plural}}")
+@Controller("{{labels.plural}}")
 export class {{name}}Controller {
   constructor(private readonly {{labels.code}}Service: {{name}}Service) {
   }

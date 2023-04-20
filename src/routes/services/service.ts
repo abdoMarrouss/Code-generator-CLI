@@ -9,7 +9,7 @@ const serviceTemplate = fs.readFileSync('src/templates/services/service.hbs', 'u
 export class ServiceTemplate {
 
 
-    generateService() {
+    generateService(schema:any) {
         Handlebars.registerHelper('toLowerCase', function(str) {
             return str.toLowerCase();
           });

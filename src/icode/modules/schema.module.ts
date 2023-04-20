@@ -7,7 +7,7 @@ const schemaModuleTemplate = fs.readFileSync('src/templates/modules/schema.modul
 export class SchemaModule {
 
 
-    generateSchemaModule() {
+    generateSchemaModule(schema:any) {
     
     const compiledTemplate = Handlebars.compile(schemaModuleTemplate);
     const generatedCode = compiledTemplate(schema);

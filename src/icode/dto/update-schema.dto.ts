@@ -7,7 +7,7 @@ const updateSchemaDtoTemplate = fs.readFileSync('src/templates/dto/update-schema
 export class UpdateSchemaeDto {
 
 
-    generateUpdateSchemaeDto() {
+    generateUpdateSchemaeDto(schema:any) {
     
     const compiledTemplate = Handlebars.compile(updateSchemaDtoTemplate);
     const generatedCode = compiledTemplate(schema);

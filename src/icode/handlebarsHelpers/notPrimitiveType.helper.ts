@@ -9,10 +9,17 @@ export class NotAPrimitiveTypeHelper {
         return primitiveTypes.includes(value);
     };
 
+    isArrayType = (value: any): boolean => {
+        const array = 'array';
+        return array.includes(value);
+    };
+
+
+
 
     getNotAPrimitiveTypeHelper() {
         Handlebars.registerHelper('isPrimitiveType', this.isPrimitiveType);
-
+        Handlebars.registerHelper('isArrayType', this.isArrayType);
 
     }
 

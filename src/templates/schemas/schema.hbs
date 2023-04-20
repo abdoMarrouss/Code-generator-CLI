@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import * as mongoose from 'mongoose';
 import { Document } from "mongoose";
 
 export type {{name}}Document = {{name}} & Document;
@@ -7,20 +8,20 @@ export type {{name}}Document = {{name}} & Document;
 export class {{name}} {
 {{#each schema}}
 
-@Prop({
-{{#if min}}
-@Min( {{min}} )
+{{#if (isPrimitiveType type)}}
+@Prop()
+{{else}}
+{{#if (isArrayType type)}}
+@Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: '{{of}}' }] })
+{{else}}
+@Prop({ type: mongoose.Schema.Types.ObjectId, ref: '{{type}}' })
+
 {{/if}}
-{{#if max}}
-@Max( {{max}} )
-{{/if}}
-{{#if max}}
-@Max( {{max}} )
 {{/if}}
 
-})
-
-{{@key}}: {{type}};
+{{#if (isArrayType type)}}
+{{@key}}: {{of}}[];{{else}}{{@key}}: {{type}};
+{{/if}}
 
 {{/each}}
 }

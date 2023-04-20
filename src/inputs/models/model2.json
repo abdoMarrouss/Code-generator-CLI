@@ -1,24 +1,26 @@
 {
     "name": "Project",
-    "Title": "Project",
+    "labels": {
+        "title": "PROJECT",
+        "code": "project",
+        "plural": "projects"
+    },
     "schema": {
-        "infos": {
-            "name": {
-                "type": "String",
-                "min": 5,
-                "max": 25,
-                "uniq": true
-            },
-            "desc": {
-                "type": "String",
-                "min": 0,
-                "max": 2500
-            }
+        "name": {
+            "type": "string",
+            "min": 5,
+            "max": 25,
+            "uniq": true
+        },
+        "desc": {
+            "type": "string",
+            "min": 0,
+            "max": 2500
         },
         "startingDate": {
             "type": "Date",
-            "min": "x",
-            "max": "y"
+            "minDate": "2020-04-14",
+            "maxDate": "2023-04-14"
         }
     }
 }

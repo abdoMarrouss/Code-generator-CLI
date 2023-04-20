@@ -1,5 +1,5 @@
 interface {{name}} {
     {{#each schema}}
-    {{@key}}: {{#if isArray}}Array<{{type}}>{{else}}{{type}}{{/if}};
+    {{@key}}:{{#if (isArrayType type)}}{{of}}[]{{else}}{{type}}{{/if}};
     {{/each}}
 }

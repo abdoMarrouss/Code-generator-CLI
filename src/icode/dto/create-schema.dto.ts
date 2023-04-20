@@ -2,11 +2,11 @@ import * as fs from 'fs-extra';
 import Handlebars from "handlebars";
 import schema from '../../inputs/models/model1.json';
 import { HandlebarsHelpers } from '../handlebarsHelpers/handlebars.helper';
-import { StringHelper } from '../handlebarsHelpers/String.helper';
 import { NumberHelper } from '../handlebarsHelpers/number.helper';
 import { DateHelper } from '../handlebarsHelpers/date.helper';
 import { BooleanHelper } from '../handlebarsHelpers/boolean.helper';
 import { NotAPrimitiveTypeHelper } from '../handlebarsHelpers/notPrimitiveType.helper';
+import { StringHelper } from '../handlebarsHelpers/string.helper';
 
 
 const createSchemaDtoTemplate = fs.readFileSync('src/templates/dto/create-schema.dto.hbs', 'utf8');
@@ -19,7 +19,7 @@ const notAPrimitiveTypeHelper = new NotAPrimitiveTypeHelper();
 export class CreateSchemaeDto {
 
 
-    generateCreateSchemaeDto() {
+    generateCreateSchemaeDto(schema:any) {
 
         stringHelper.getStringHelper();
         numberHelper.getNumberHelper(); 
